@@ -1,0 +1,69 @@
+.current_weather {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+
+  .main_params,
+  .secondary_params {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+
+    span {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .main_params {
+    gap: unset;
+  }
+
+  .main_params .datetime {
+    color: #bcccf4;
+  }
+
+  .main_params .datetime time {
+    margin-left: 8px;
+  }
+
+  .main_params .datetime time:first-child {
+    margin-left: 0;
+  }
+
+  .main_params .temperature {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bold;
+    font-size: 62px;
+  }
+
+  .main_params .status {
+    font-weight: 600;
+    font-size: 22px;
+  }
+
+  .secondary_params {
+    flex-direction: row;
+    justify-content: space-between;
+
+    .icon_transform {
+      transform-origin: 50% 50%;
+      transition: .2s;
+    }
+  }
+}

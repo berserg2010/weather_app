@@ -1,0 +1,15 @@
+header {
+  position: relative;
+
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+
+  .location {
+    font-weight: bold;
+    font-size: 18px;
+  }
+}

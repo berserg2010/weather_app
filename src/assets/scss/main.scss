@@ -1,0 +1,139 @@
+@import 'variables';
+
+@import 'header';
+@import 'current_weather';
+@import 'settings';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $bg-color;
+  color: white;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+button {
+  border: none;
+  background: none;
+
+  cursor: pointer;
+}
+
+.wrapper {
+  position: relative;
+
+  width: $min-width;
+  margin: 0 auto;
+}
+
+header,
+.current_weather,
+main {
+  width: $min-width;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+main {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 30px;
+
+  background-color: #3a5cb3;
+  border-radius: 22px;
+
+  .forecast_day ul,
+  .forecast_week ul {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  .forecast_day li {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+
+    span:first-child {
+      color: #bcccf4;
+    }
+
+    span:last-child {
+      font-size: 16px;
+    }
+  }
+
+  .forecast_week ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .forecast_week li {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    height: 80px;
+    width: 100%;
+    padding: 0 16px;
+
+    color: black;
+
+    background-color: #e9eefa;
+
+    border-radius: 22px;
+
+    .forecast_week__date {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 4px;
+      min-width: 160px;
+
+      span:first-child {
+        color: rgba(0, 0, 0, .28);
+      }
+
+      span:last-child {
+        font-size: 18px;
+        font-weight: 600;
+      }
+    }
+
+    .forecast_week__temperature {
+      min-width: 100px;
+
+      text-align: right;
+
+      span:last-child {
+        margin-left: 8px;
+
+        color: rgba(0, 0, 0, .28);
+      }
+    }
+  }
+}
