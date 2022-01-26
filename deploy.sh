@@ -10,6 +10,4 @@ git init
 git add -A
 git commit -m 'deploy'
 
-git push -f git@github.com:berserg2010/WeatherApp.git master:gh-pages
-
-cd -
+git push -f git@github.com:berserg2010/weather_app.git main:gh-pages

@@ -8,7 +8,7 @@
         ,
         <time>{{ getYear(datetime) }}</time>
       </span>
-      {{ tzOffset }}
+
       <div class="temperature">
         {{ currentForecast.temp }}
         <IconSvg v-if="currentForecast.weather_icon" :icon="currentForecast.weather_icon" size="96" />
