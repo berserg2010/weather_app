@@ -17,7 +17,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 
-import { firstSymbolToUpper, getMonthDay, getWeekday } from '../helpers';
+import { getMonthDay, getWeekday } from '../helpers';
 import IconSvg from './IconSvg.vue';
 
 export default defineComponent({
@@ -33,7 +33,6 @@ export default defineComponent({
   },
   setup() {
     return {
-      firstSymbolToUpper,
       getMonthDay,
       getWeekday,
     };

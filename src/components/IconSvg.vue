@@ -31,7 +31,6 @@ export default defineComponent({
     if (icon.value) {
       import(`../assets/img/${icon.value}.svg`)
         .then((val) => {
-          // val is a Module has default
           currentIcon.value = val.default;
         })
         .catch((err) => {

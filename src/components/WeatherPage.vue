@@ -58,18 +58,19 @@ export default defineComponent({
   },
   setup() {
     const store = useStore();
+
     const isOpenSettings = ref(false);
     const openSettingsHandler = () => (isOpenSettings.value = !isOpenSettings.value);
 
     const currentLocation = computed(() => store.state.settings.currentLocation);
     watchEffect(() => api.getForecast(currentLocation.value.lat, currentLocation.value.lon));
 
-    setCurrentLocationToStorage();
-    setSettingsToStorage();
-
     const currentForecast = computed(() => store.getters.getCurrentForecast);
     const hourlyForecast = computed(() => store.getters.getHourlyForecast);
     const dailyForecast = computed(() => store.getters.getDailyForecast);
+
+    setCurrentLocationToStorage();
+    setSettingsToStorage();
 
     return {
       isOpenSettings,

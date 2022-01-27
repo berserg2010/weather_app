@@ -32,7 +32,6 @@
 
 <script lang="ts">
 import { computed, defineComponent, onDeactivated, PropType, ref, toRefs } from 'vue';
-import { useStore } from 'vuex';
 
 import IconSvg from './IconSvg.vue';
 import { getMonthDay, getTime, getYear } from '../helpers';
@@ -51,9 +50,6 @@ export default defineComponent({
   setup(props) {
     const { currentForecast } = toRefs(props);
 
-    const store = useStore();
-    const tzOffset = computed(() => store.state.settings.timezoneOffset / 3600);
-
     const styleIconTransform = computed(() => ({ transform: `rotate(${currentForecast.value.wind_deg}deg)` }));
 
     const datetime = ref(new Date());
@@ -69,8 +65,6 @@ export default defineComponent({
       getMonthDay,
       getYear,
       styleIconTransform,
-
-      tzOffset,
     };
   },
 });

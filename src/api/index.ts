@@ -55,4 +55,36 @@ export const api = {
       console.error(error);
     }
   },
+  async getCityToName({ name }: { name: string }) {
+    try {
+      const {
+        data: { _embedded },
+      } = await clientTeleport.get('cities/', {
+        params: {
+          search: name,
+          limit: 5,
+        },
+      });
+      const searchResults = _embedded['city:search-results'];
+
+      return searchResults;
+    } catch (error) {
+      console.error(error);
+    }
+  },
+  async getCityToLink({ url }: { url: string }): Promise<CurrentLocation | void> {
+    try {
+      const { data } = await axios.get(url);
+
+      const newLocation = {
+        name: data.name,
+        lat: data.location.latlon.latitude.toString(),
+        lon: data.location.latlon.longitude.toString(),
+      };
+
+      return newLocation;
+    } catch (error) {
+      console.error(error);
+    }
+  },
 };

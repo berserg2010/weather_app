@@ -2,13 +2,7 @@
   <div>
     <div class="settings__modal">
       <span class="title">Change Location?</span>
-      <button
-        class="settings_button_submit plain"
-        @mouseup="
-          getGeoLocation(getLocation);
-          closeModal();
-        "
-      >
+      <button class="settings_button_submit plain" @mouseup="getGeoLocation(getLocation)">
         Use My Current Location
       </button>
       <button class="settings_button_submit plain" @mouseup="openSearchLocationHandler">
@@ -19,7 +13,11 @@
     <div class="backstage" @mouseup.left="closeModal"></div>
 
     <transition name="fade">
-      <SearchLocation v-if="isOpenSearchLocation" @closeSearchLocation="openSearchLocationHandler" />
+      <SearchLocation
+        v-if="isOpenSearchLocation"
+        @selectedLocation="returnNewCurrentLocation"
+        @closeSearchLocation="openSearchLocationHandler"
+      />
     </transition>
   </div>
 </template>
@@ -39,8 +37,10 @@ export default defineComponent({
   emits: ['closeModal', 'returnNewCurrentLocation'],
   setup(props, { emit }) {
     const closeModal = () => emit('closeModal');
-    const returnNewCurrentLocation = (newCurrentLocation: CurrentLocation) =>
+    const returnNewCurrentLocation = (newCurrentLocation: CurrentLocation) => {
       emit('returnNewCurrentLocation', newCurrentLocation);
+      closeModal();
+    };
 
     const isOpenSearchLocation = ref(false);
     const openSearchLocationHandler = () => (isOpenSearchLocation.value = !isOpenSearchLocation.value);
@@ -56,6 +56,7 @@ export default defineComponent({
       closeModal,
       isOpenSearchLocation,
       openSearchLocationHandler,
+      returnNewCurrentLocation,
       getGeoLocation,
       getLocation,
     };

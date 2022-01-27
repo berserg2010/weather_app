@@ -251,3 +251,30 @@
   background-color: rgba(#2196f3, .5);
 }
 
+.list_location {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 32px;
+  width: $min-width - 32px;
+  margin: 0 auto;
+  padding: 8px;
+  padding-top: 80px;
+
+  list-style: none;
+
+  button {
+    color: #404040;
+    font-size: 18px;
+
+    text-align: left;
+
+    span:first-child {
+      color: black;
+      font-weight: bold;
+    }
+  }
+}
+

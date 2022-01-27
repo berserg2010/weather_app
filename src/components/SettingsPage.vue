@@ -74,6 +74,7 @@ export default defineComponent({
   emits: ['closeSettings'],
   setup(props, { emit }) {
     const store = useStore();
+
     const newCurrentLocation = ref();
     const currentLocation = computed(() => store.state.settings.currentLocation);
     const newCurrentLocationHandler = (newLocation: CurrentLocation) => (newCurrentLocation.value = newLocation);
