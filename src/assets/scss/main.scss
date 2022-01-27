@@ -29,14 +29,16 @@ button {
 .wrapper {
   position: relative;
 
-  width: $min-width;
+  min-width: $min-width;
+  max-width: $max-width;
   margin: 0 auto;
 }
 
 header,
 .current_weather,
 main {
-  width: $min-width;
+  min-width: $min-width;
+  max-width: $max-width;
   margin: 0 auto;
   padding: 16px;
 }
@@ -94,7 +96,6 @@ main {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
     height: 80px;
     width: 100%;
     padding: 0 16px;
@@ -115,7 +116,7 @@ main {
       min-width: 160px;
 
       span:first-child {
-        color: rgba(0, 0, 0, .28);
+        color: rgb(0 0 0 / 28%);
       }
 
       span:last-child {
@@ -132,8 +133,19 @@ main {
       span:last-child {
         margin-left: 8px;
 
-        color: rgba(0, 0, 0, .28);
+        color: rgb(0 0 0 / 28%);
       }
     }
   }
 }
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+

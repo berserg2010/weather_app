@@ -1,20 +1,27 @@
 <template>
-  <div class="settings__modal">
-    <span class="title">Change Location?</span>
-    <button
-      class="settings_button_submit plain"
-      @mouseup="
-        getGeoLocation(getLocation);
-        closeModal();
-      "
-    >
-      Use My Current Location
-    </button>
-    <!--    <button class="settings_button_submit plain" @mouseup="openSearchLocationHandler">Select location manually</button>-->
-    <button class="settings_button_submit cancel" type="button" @mouseup.left="closeModal">Cancel</button>
+  <div>
+    <div class="settings__modal">
+      <span class="title">Change Location?</span>
+      <button
+        class="settings_button_submit plain"
+        @mouseup="
+          getGeoLocation(getLocation);
+          closeModal();
+        "
+      >
+        Use My Current Location
+      </button>
+      <button class="settings_button_submit plain" @mouseup="openSearchLocationHandler">
+        Select location manually
+      </button>
+      <button class="settings_button_submit cancel" type="button" @mouseup.left="closeModal">Cancel</button>
+    </div>
+    <div class="backstage" @mouseup.left="closeModal"></div>
+
+    <transition name="fade">
+      <SearchLocation v-if="isOpenSearchLocation" @closeSearchLocation="openSearchLocationHandler" />
+    </transition>
   </div>
-  <div class="backstage" @mouseup.left="closeModal"></div>
-  <SearchLocation v-if="isOpenSearchLocation" @closeSearchLocation="openSearchLocationHandler" />
 </template>
 
 <script lang="ts">

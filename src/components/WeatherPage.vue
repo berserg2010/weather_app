@@ -27,7 +27,10 @@
       <IconSvg icon="Settings" size="24" />
     </button>
   </div>
-  <SettingsPage v-if="isOpenSettings" @closeSettings="openSettingsHandler" />
+
+  <transition name="fade">
+    <SettingsPage v-if="isOpenSettings" @closeSettings="openSettingsHandler" />
+  </transition>
 </template>
 
 <script lang="ts">

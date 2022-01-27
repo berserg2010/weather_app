@@ -48,11 +48,13 @@
       <button class="settings_button_submit" @mouseup="applySettings" :disabled="disabledButton">Apply Settings</button>
     </div>
 
-    <SettingsModal
-      v-if="isOpenSettingsModal"
-      @closeModal="openSettingsModal"
-      @returnNewCurrentLocation="newCurrentLocationHandler"
-    />
+    <transition name="fade">
+      <SettingsModal
+        v-if="isOpenSettingsModal"
+        @closeModal="openSettingsModal"
+        @returnNewCurrentLocation="newCurrentLocationHandler"
+      />
+    </transition>
   </section>
 </template>
 

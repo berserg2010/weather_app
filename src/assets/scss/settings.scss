@@ -12,7 +12,8 @@
 
   .settings__wrapper {
     height: 100%;
-    width: $min-width;
+    min-width: $min-width;
+    max-width: $max-width;
     margin: 0 auto;
   }
 
@@ -123,7 +124,7 @@
 }
 
 .settings__modal {
-  $width: 360px;
+  $width: $min-width - 32px;
 
   position: fixed;
   top: 80px;
@@ -165,7 +166,7 @@
   z-index: 1;
 
   .search_wrapper {
-    $width: 349px;
+    $width: $min-width - 32px;
 
     position: absolute;
     top: 9px;
